@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+
+Route::group(['prefix' => 'front'], function () {
+
+    Route::any('/','Frontend\IndexController@index');
 });
+
+//Route::any('/','Frontend\IndexController@index');
+
+//Route::post('/','Frontend\IndexController@index');
