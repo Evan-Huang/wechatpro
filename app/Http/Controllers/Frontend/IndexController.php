@@ -15,6 +15,7 @@ class IndexController extends Controller
         //判斷form提交
         if ($request->isMethod('post')) {
 
+            //獲取request數據並驗證
             $inputs = $request->all();
             if( !isset($inputs['accept_terms']) || $inputs['accept_terms'] != '1' ) {
 
@@ -55,6 +56,7 @@ class IndexController extends Controller
                 }
             }
 
+            //持久化數據到數據庫
             $clients = Client::create([
                 'email' => $inputs['email'],
                 'phone' => $inputs['phone']

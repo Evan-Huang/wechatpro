@@ -41,15 +41,13 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-3">
+                    <div class="col-sm-offset-2 col-sm-3 col-xs-3">
                         <button type="submit" class="btn btn-primary bt_submit">提交</button>
                     </div>
                     @if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
-
-                            <div class="col-sm-7">
-                                <a href="weixin://addfriend/eTechMacau"  class="btn btn-primary bt_submit">一键关注</a>
-                            </div>
-
+                        <div class="col-sm-7 col-xs-7">
+                            <a href="http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI2ODU2ODI3OQ==&scence=110#wechat_redirect"  class="btn btn-primary bt_submit">一键关注</a>
+                        </div>
                     @endif
                 </div>
 
