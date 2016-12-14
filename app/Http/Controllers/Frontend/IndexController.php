@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
@@ -62,7 +63,11 @@ class IndexController extends Controller
                 'phone' => $inputs['phone']
             ]);
 
+
+
             if ($clients) {
+                //數據保存成功則發送通知郵件
+                $this->mail($inputs['email']);
                 return redirect('/front')->with('success','成功參與本次活動');
             }else{
                 return redirect()->back()->with('error','信息添加失敗，請重試');
@@ -70,7 +75,23 @@ class IndexController extends Controller
 
         }
 
-
         return view('frontend.index');
+    }
+
+    //郵件發送
+    public function mail($email){
+
+            // 第一个参数填写模板的路径，第二个参数填写传到模板的变量
+            Mail::send('mail.mail',['email' => $email],function ($message) use($email) {
+
+                // 发件人（你自己的邮箱和名称）
+                $message->from(env('MAIL_USERNAME'), 'JaCa');
+                // 收件人的邮箱地址
+                $message->to($email);
+                // 邮件主题
+                $message->subject('测试');
+            });
+
+
     }
 }
