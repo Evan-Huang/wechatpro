@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/backend/login', ['uses' => 'Backend\AuthController@login']);
 Route::post('/backend/login', ['uses' => 'Backend\AuthController@postLogin']);
@@ -38,14 +38,3 @@ Route::group(['middleware' => ['auth.backend'], 'prefix' => 'backend'], function
 
 
 
-//Route::group(['middleware' => ['auth.backend'], 'prefix' => 'backend'], function() {
-//
-//    Route::get('/', ['uses' => 'Backend\HomeController@index', 'as' => 'backend.home.index']);
-//
-//    Route::get('/report/export', 'Backend\ReportController@export');
-//    Route::resource('/report', 'Backend\ReportController');
-//
-//
-//    Route::resource('/user', 'Backend\UserController');
-//
-//});
