@@ -15,9 +15,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/backend/login', ['uses' => 'Backend\AuthController@login']);
+Route::post('/backend/login', ['uses' => 'Backend\AuthController@postLogin']);
+Route::get('/backend/logout', ['uses' => 'Backend\AuthController@logout']);
+
 
 Route::group(['prefix' => 'front'], function () {
 
     Route::any('/','Frontend\IndexController@index');
 });
 
+
+Route::group(['middleware' => ['auth.backend'], 'prefix' => 'backend'], function() {
+
+    Route::get('/', ['uses' => 'Backend\HomeController@index', 'as' => 'backend.home.index']);
+
+    Route::get('/report/export', 'Backend\ReportController@export');
+    Route::resource('/report', 'Backend\ReportController');
+
+    Route::resource('/user', 'Backend\UserController');
+});
+
+
+
+//Route::group(['middleware' => ['auth.backend'], 'prefix' => 'backend'], function() {
+//
+//    Route::get('/', ['uses' => 'Backend\HomeController@index', 'as' => 'backend.home.index']);
+//
+//    Route::get('/report/export', 'Backend\ReportController@export');
+//    Route::resource('/report', 'Backend\ReportController');
+//
+//
+//    Route::resource('/user', 'Backend\UserController');
+//
+//});
