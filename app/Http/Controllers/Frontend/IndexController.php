@@ -18,44 +18,27 @@ class IndexController extends Controller
 
             //獲取request數據並驗證
             $inputs = $request->all();
-            if( !isset($inputs['accept_terms']) || $inputs['accept_terms'] != '1' ) {
 
-                $validator = \Validator::make($inputs, [
-                    'email' => 'required|email|unique:clients',
-                    'phone' => 'required|numeric|min:60000000|max:69999999',
-                    'accept_terms' => 'required'
-                ], [
-                    'email.required' => '請填寫Email',
-                    'email.email' => '請檢查Email格式是否正確',
-                    'email.unique' => '該Email已參與活動',
-                    'phone.required' => '請填寫手機號碼',
-                    'phone.numeric' => '必須為6字開頭的8位數字',
-                    'phone.min' => '必須為6字開頭的8位數字',
-                    'phone.max' => '必須為6字開頭的8位數字',
-                    'accept_terms.required' => '請點選空格同意條款及細則以繼續',
-                ]);
+            $validator = \Validator::make($inputs, [
+                'email' => 'required|email|unique:clients',
+                'phone' => 'required|numeric|min:60000000|max:69999999',
+                'accept_terms' => 'required|accepted'
+            ], [
+                'email.required' => '請填寫Email',
+                'email.email' => '請檢查Email格式是否正確',
+                'email.unique' => '該Email已參與活動',
+                'phone.required' => '請填寫手機號碼',
+                'phone.numeric' => '必須為6字開頭的8位數字',
+                'phone.min' => '必須為6字開頭的8位數字',
+                'phone.max' => '必須為6字開頭的8位數字',
+                'accept_terms.required' => '請點選空格同意條款及細則以繼續',
+                'accept_terms.accepted' => '請點選空格同意條款及細則以繼續',
+            ]);
 
-                if( $validator->fails() ) {
-                    return \Redirect::back()->withInput($inputs)->withErrors($validator);
-                }
-            }else {
-                $validator = \Validator::make($inputs, [
-                    'email' => 'required|email|unique:clients',
-                    'phone' => 'required|numeric|min:60000000|max:69999999'
-                ], [
-                    'email.required' => '請填寫Email',
-                    'email.email' => '請檢查Email格式是否正確',
-                    'email.unique' => '該Email已參與活動',
-                    'phone.required' => '請填寫手機號碼',
-                    'phone.numeric' => '必須為6字開頭的8位數字',
-                    'phone.min' => '必須為6字開頭的8位數字',
-                    'phone.max' => '必須為6字開頭的8位數字',
-                ]);
-
-                if( $validator->fails() ) {
-                    return redirect()->back()->withInput($inputs)->withErrors($validator);
-                }
+            if( $validator->fails() ) {
+                return \Redirect::back()->withInput($inputs)->withErrors($validator);
             }
+
 
             //持久化數據到數據庫
             $clients = Client::create([
