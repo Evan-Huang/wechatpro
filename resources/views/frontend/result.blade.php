@@ -1,6 +1,6 @@
 @extends('frontend.template.master')
 
-@section('title','即时结果')
+@section('title','澳門漁人碼頭與你相約於Countdown Fever 2017 ')
 
 @section('body')
 <style>
@@ -12,16 +12,25 @@
         margin-right: auto;
     }
 </style>
+<div class="row" style="padding: 30px; background-color: rgba(0,0,0,0.6);">
+    <div class="col-sm-12">
+        <div class="header-title text-center">
+            <u><h3><b>澳門漁人碼頭與你相約於Countdown Fever 2017
+                        <br>
+                        See You at Macau Fisherman’s Wharf Countdown Fever 2017 </b></h3></u>
+        </div>
+    </div>
 
-    <div class="row">
 
         <div class="col-sm-12" >
             <div class="text-center">
-                <p>多謝參與，免費精美禮品電子換領券已發送至已登記的電子郵箱。<br>
-                    澳門漁人碼頭Countdown Fever 2017見！</p><br>
-                <p>Thank you. Please check your registered email box for the free souvenir e-ticket.<br>
-                    See you at Macau Fisherman’s Wharf Countdown Fever 2017!
-                </p><br>
+                <p>
+                    多謝參與，精美禮品電子換領券已發送至已登記的電子郵箱，<br>“除夕倒數抽獎”結果將於12月31日公佈。請關注我們獲取最新消息！
+                    <br>
+                    Thank you. Please check your registered email box for the souvenir e-ticket. <br> The “Countdown Fever Lucky Draw” results will be announced on 31st December.
+                    <br> Please follow us for the latest information!
+
+                </p>
             </div>
             <div>
                 <div class="center">

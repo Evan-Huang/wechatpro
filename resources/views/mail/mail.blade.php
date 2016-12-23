@@ -13,8 +13,10 @@
         }
     </style>
 
-    <div class="row">
-
+    <div class="row" style="background-color: rgba(0,0,0,0.6); padding: 20px;">
+        <div style="text-align: center">
+            <img src="{{ asset('images/logo.jpg') }}"  width="200" alt="">
+        </div>
         <div class="col-sm-12" >
             <div class="text-left">
                 <p>編號 No. 16{{ sprintf("%04d", $id) }}</p><br>
@@ -24,7 +26,9 @@
                 <p>See You at Macau Fisherman’s Wharf Countdown Fever 2017!</p><br>
             </div>
             <div>
-                <p>保持聯絡 Stay in touch:</p>
+                <p>關注我們獲取最新消息
+                    <br>Follow us for latest information
+                </p>
 
                 <div class="">
                     <img src="{{ asset('images/facebook.png') }}" class="img-responsive center-block pull-left" style="height: 16px;">
@@ -36,6 +40,9 @@
                     <span><a href="http://www.fishermanswharf.com.mo/tc/content/wechat.aspx">&nbsp;<u>WX_MFW</u></a></span>
                 </div>
                 <br>
+                <div style="text-align: center">這是通知專用電子郵件，請勿直接回覆。 <br>
+                    This is a notification-only mailing, please do not reply directly.
+                </div>
             </div>
         </div>
 
