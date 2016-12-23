@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => '2628685929@qq.com', 'name' => 'JaCa的個人郵箱'],
+    'from' => ['address' => 'noreply@fishermanswharf.com.mo', 'name' => '澳門漁人碼頭'],
 
     /*
     |--------------------------------------------------------------------------

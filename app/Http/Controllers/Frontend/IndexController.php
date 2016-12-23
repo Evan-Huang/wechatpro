@@ -23,7 +23,7 @@ class IndexController extends Controller
             $validator = \Validator::make($inputs, [
                 'clientname' => 'required',
                 'email' => 'required|email|unique:clients',
-                'phone' => 'required|numeric|min:60000000|max:69999999',
+                'phone' => 'required|numeric',
                 'accept_terms1' => 'required|accepted',
                 'accept_terms2' => 'required|accepted'
             ], [
@@ -68,12 +68,12 @@ class IndexController extends Controller
         return view('frontend.index');
     }
 
-    //条款与细则页面
+    //條款與細則頁面
     public function terms() {
         return view('frontend.terms');
     }
 
-    //即时结果页面
+    //即時結果頁面
     public function result() {
         return view('frontend.result');
     }
@@ -81,16 +81,16 @@ class IndexController extends Controller
     //郵件發送
     public function mail($client){
 
-            // 第一个参数填写模板的路径，第二个参数填写传到模板的变量
-            Mail::send('mail.mail',['id' => $client->id],function ($message) use($client) {
+        // 第一個參數填寫模板的路徑，第二個參數填寫傳到模板的變量
+        Mail::send('mail.mail',['id' => $client->id],function ($message) use($client) {
 
-                // 发件人（你自己的邮箱和名称）
-                $message->from(env('MAIL_USERNAME'), '渔人码头');
-                // 收件人的邮箱地址
-                $message->to($client->email);
-                // 邮件主题
-                $message->subject('测试');
-            });
+            // 發件人（你自己的郵箱和名稱）
+            $message->from(env('MAIL_USERNAME'), '澳門漁人碼頭與你相約於Countdown Fever 2017');
+            // 收件人的郵箱地址
+            $message->to($client->email);
+            // 郵件主題
+            $message->subject('澳門漁人碼頭與你相約於Countdown Fever 2017');
+        });
     }
 
 }
