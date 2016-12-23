@@ -14,6 +14,7 @@
 			<tr>
 				<th>#</th>
 				<th>郵箱</th>
+				<th>姓名</th>
 				<th>電話號碼</th>
 				<th>建立日期</th>
 			</tr>
@@ -24,6 +25,7 @@
 			<tr>
 				<td>{{ $record->id }}</td>
 				<td>{{ $record->email }}</td>
+				<td>{{ $record->clientname }}</td>
 				<td>{{ $record->phone }}</td>
 				<td>{{ $record->created_at }}</td>
 			</tr>

@@ -23,6 +23,8 @@ Route::get('/backend/logout', ['uses' => 'Backend\AuthController@logout']);
 Route::group(['prefix' => 'front'], function () {
 
     Route::any('/','Frontend\IndexController@index');
+    Route::get('/terms','Frontend\IndexController@terms');
+    Route::get('/result','Frontend\IndexController@result');
 });
 
 

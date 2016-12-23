@@ -9,5 +9,5 @@ class Client extends Model
     //模型指定表
     protected $table = 'clients';
 
-    protected $fillable = ['email','phone'];
+    protected $fillable = ['clientname','email','phone'];
 }
