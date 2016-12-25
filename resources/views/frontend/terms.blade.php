@@ -50,13 +50,13 @@
                     <li>During the promotion period, participant fills in the sign-up form to receive a free souvenir e-ticket and entre the &ldquo;Countdown Fever Lucky Draw&rdquo;.</li>
                     <li>Each person, with a valid email and phone number, is limited to fill in the form for one time only.</li>
                     <li>&ldquo;See You at Countdown Fever 2017&rdquo; sign-up deadline:</li>
-                    <li>Souvenir online sign-up deadline is by 9:00pm on 31st December, 2016.
                         <ul>
+                            <li>Souvenir online sign-up deadline is by 9:00pm on 31st December, 2016.
                             <li>&ldquo;Countdown Fever Lucky Draw&rdquo; entry deadline is by 3:00pm on 30th December, 2016. </li>
-                            <li>Souvenirs can be claimed, with the e-ticket, at Macau Fisherman&rsquo;s Wharf from 7:30pm to 10:00pm on 31st December, 2016 on first-come-first-serve basis while stock lasts.</li>
                         </ul>
                     </li>
-                    <li>Lucky draw will be conducted internally. Winners will be announced on the event page of Macau Fisherman&rsquo;s Wharf website (<a href="http://www.fishermanswharf.com.mo">www.fishermanswharf.com.mo</a>) on 31st December, 2016 and informed by phone and email.</li>
+                    <li>Souvenirs can be claimed, with the e-ticket, at Macau Fisherman&rsquo;s Wharf from 7:30pm to 10:00pm on 31st December, 2016 on first-come-first-serve basis while stock lasts.</li>
+                    <li>Lucky draw will be conducted internally. Winners will be announced and informed by phone and email on 31st December, 2016.</li>
                     <li>Prizes must be claimed with personal identification document support and proof of email notification at Macau Fisherman&rsquo;s Wharf from 7:30pm to 10:00pm on 31st December, 2016. Otherwise is considered as voluntarily forfeited.</li>
                     <li>Prize is non-refundable and cannot be exchanged for cash.</li>
                     <li>Employees of Macau Legend Development Ltd. and its affiliates are not eligible for this lucky draw.</li>
