@@ -19,7 +19,7 @@
                Fill in a valid email address for a free souvenir e-ticket</p>
             </div>
             <form class="form-horizontal" action="" method="POST">
-                <div class="col-sm-12">
+                <div class="col-sm-12 hide">
                     <div class="form-group">
                         <label for="name" class="control-label">姓名 Name</label>
                         <input type="text" name="clientname"
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
-
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="checkbox" checked id="accept_terms1"
                                    name="accept_terms1" value="1" style="float:left;">
                             <p>&nbsp;勾選此方格表示本人同意澳門勵駿創建有限公司及其附屬公司使用上述資料聯絡本人，發送有關澳門漁人碼頭及澳門勵駿創建有限公司成員的優惠及推廣信息。本人明白本人有權撤銷上述同意以及取消訂閱信息。<br> By checking this box, I agree that Macau Legend Development Ltd. and its affiliates may use this information to contact me about offers, promotions and special events from Macau Fisherman’s Wharf and the affiliates of Macau Legend. I understand that I have the option to withdraw my consent and opt out.

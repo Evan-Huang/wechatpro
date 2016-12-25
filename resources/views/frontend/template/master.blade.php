@@ -23,6 +23,10 @@
     <![endif]-->
     <style>
 
+        .text-danger{
+            color: yellow;
+        }
+
         .form-horizontal {
             color: #ffffff;
             font-weight: 300;

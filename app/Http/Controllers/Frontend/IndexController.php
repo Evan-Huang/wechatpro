@@ -21,13 +21,15 @@ class IndexController extends Controller
 
 
             $validator = \Validator::make($inputs, [
-                'clientname' => 'required',
+              //  'clientname' => 'required',
                 'email' => 'required|email|unique:clients',
-                'phone' => 'required|numeric',
+                'phone' => 'numeric',
                 'accept_terms1' => 'required|accepted',
                 'accept_terms2' => 'required|accepted'
             ], [
-                'clientname.required' => '請填寫姓名 Name',
+                'email.required_without_all' => '請填寫電郵或手提電話',
+                'phone.required_without_all' => '請填寫電郵或手提電話',
+               // 'clientname.required' => '請填寫姓名 Name',
                 'email.required' => '請填寫電郵 Email',
                 'email.email' => '請檢查Email格式是否正確',
                 'email.unique' => '該Email已參與活動',
