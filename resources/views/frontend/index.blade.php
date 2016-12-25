@@ -59,14 +59,14 @@
                     <div class="col-sm-12">
                         <div class="form-group">
 
-                            <input type="checkbox" {{ old('accept_terms1') ? 'checked' : '' }} id="accept_terms1"
+                            <input type="checkbox" checked id="accept_terms1"
                                    name="accept_terms1" value="1" style="float:left;">
                             <p>&nbsp;勾選此方格表示本人同意澳門勵駿創建有限公司及其附屬公司使用上述資料聯絡本人，發送有關澳門漁人碼頭及澳門勵駿創建有限公司成員的優惠及推廣信息。本人明白本人有權撤銷上述同意以及取消訂閱信息。<br> By checking this box, I agree that Macau Legend Development Ltd. and its affiliates may use this information to contact me about offers, promotions and special events from Macau Fisherman’s Wharf and the affiliates of Macau Legend. I understand that I have the option to withdraw my consent and opt out.
                             </p>
                             @if($errors->first('accept_terms1'))<p
                                     class="form-control-static text-danger">{{ $errors->first('accept_terms1') }}</p>@endif
 
-                            <input type="checkbox" {{ old('accept_terms2') ? 'checked' : '' }} id="accept_terms2"
+                            <input type="checkbox" checked id="accept_terms2"
                                    name="accept_terms2" value="1" style="float:left;">
                             <p>&nbsp;勾選此方格表示本人亦已閱讀及瞭解有關<a href="{{ url('/terms') }}"><u>條款與細則</u></a>。By checking
                                 this box, I have also viewed the <a href="{{ url('/terms') }}"><u>Terms and

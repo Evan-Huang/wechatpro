@@ -38,11 +38,11 @@
                 </div>
 
                 <div class="center">
+                    <img src="{{ asset('images/wechat.png') }}" class="img-responsive center-block pull-left" style="height: 16px;">
+                    <span><a href="http://www.fishermanswharf.com.mo/tc/content/wechat.aspx">&nbsp;<u>WX_MFW</u></a></span><br>
                     @if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
                         <a href="http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI0MzE1NTkyOA==&scence=110#wechat_redirect"  class="btn btn-primary bt_submit">一鍵關注</a>
                     @endif
-                    <img src="{{ asset('images/wechat.png') }}" class="img-responsive center-block pull-left" style="height: 16px;">
-                    <span><a href="http://www.fishermanswharf.com.mo/tc/content/wechat.aspx">&nbsp;<u>WX_MFW</u></a></span>
                 </div>
 
             </div>
