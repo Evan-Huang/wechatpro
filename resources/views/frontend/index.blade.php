@@ -87,11 +87,6 @@
                             <div class="btn-group center">
                                 <button type="submit" class="btn btn-primary bt_submit">確定 ENTER</button>
                             </div>
-                            {{--                    @if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
-                                                    <div class="col-sm-7 col-xs-7">
-                                                        <a href="http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI2ODU2ODI3OQ==&scence=110#wechat_redirect"  class="btn btn-primary bt_submit">一鍵關注</a>
-                                                    </div>
-                                                @endif--}}
                         </div>
                     </div>
             </form>
