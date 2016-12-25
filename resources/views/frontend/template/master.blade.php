@@ -55,6 +55,20 @@
             background-size: cover;
         }
 
+        @media screen and (max-width:768px){
+            .main_bg{
+                padding-top:280px;
+                background-size: 170%;
+            }
+        }
+
+        @media screen and (max-width:320px){
+            .main_bg{
+                padding-top:220px;
+                background-size: 170%;
+            }
+        }
+
     </style>
 </head>
 <body style="background-color: #000000; color:#ffffff; max-width: 750px; margin: auto; padding-bottom: 40px;">

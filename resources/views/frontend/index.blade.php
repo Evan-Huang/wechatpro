@@ -68,8 +68,8 @@
 
                             <input type="checkbox" {{ old('accept_terms2') ? 'checked' : '' }} id="accept_terms2"
                                    name="accept_terms2" value="1" style="float:left;">
-                            <p>&nbsp;勾選此方格表示本人亦已閱讀及瞭解有關<a href="{{ url('front/terms') }}"><u>條款與細則</u></a>。By checking
-                                this box, I have also viewed the <a href="{{ url('front/terms') }}"><u>Terms and
+                            <p>&nbsp;勾選此方格表示本人亦已閱讀及瞭解有關<a href="{{ url('/terms') }}"><u>條款與細則</u></a>。By checking
+                                this box, I have also viewed the <a href="{{ url('/terms') }}"><u>Terms and
                                         Conditions</u></a>.</p>
                             @if($errors->first('accept_terms2'))<p
                                     class="form-control-static text-danger">{{ $errors->first('accept_terms2') }}</p>@endif
