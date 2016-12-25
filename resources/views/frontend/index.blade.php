@@ -11,10 +11,10 @@
 
         <div class="col-sm-12">
             <div class="description text-center">
-                <h3>
+                <h4>
                     <u> 澳門漁人碼頭與你相約於Countdown Fever 2017 <br>
                         See You at Macau Fisherman’s Wharf Countdown Fever 2017</u>
-                </h3>
+                </h4>
                 <p>填寫有效電郵地址即獲免費精美禮品電子換領券 <br>
                Fill in a valid email address for a free souvenir e-ticket</p>
             </div>

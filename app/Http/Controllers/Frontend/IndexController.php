@@ -60,7 +60,7 @@ class IndexController extends Controller
             if ($client) {
                 //數據保存成功則發送通知郵件
                 $this->mail($client);
-                return redirect('/front/result')->with('success','成功參與本次活動');
+                return redirect('/result')->with('success','成功參與本次活動');
             }else{
                 return redirect()->back()->with('error','信息添加失敗，請重試');
             }
@@ -87,7 +87,7 @@ class IndexController extends Controller
         Mail::send('mail.mail',['id' => $client->id],function ($message) use($client) {
 
             // 發件人（你自己的郵箱和名稱）
-            $message->from(env('MAIL_USERNAME'), '澳門漁人碼頭與你相約於Countdown Fever 2017');
+            $message->from('noreply@fishermanswharf.com.mo', '澳門漁人碼頭與你相約於Countdown Fever 2017');
             // 收件人的郵箱地址
             $message->to($client->email);
             // 郵件主題
