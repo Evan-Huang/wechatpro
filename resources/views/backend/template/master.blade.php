@@ -51,6 +51,14 @@
                         <a href="{{ action('Backend\HomeController@index') }}">後台首頁</a>
                     </li>
 
+                    <li class="visible-xs{!! strpos(Route::current()->getName(), 'backend.report.') !== FALSE ? ' active' : '' !!}">
+                        <a href="{{ action('Backend\ReportController@index') }}">報表 (活動)</a>
+                    </li>
+
+                    <li class="visible-xs{!! strpos(Route::current()->getName(), 'backend.user') !== FALSE ? ' active' : '' !!}">
+                        <a href="{{ action('Backend\UserController@index') }}">系統用戶</a>
+                    </li>
+
                     <li>
                         <a href="{{ action('Backend\AuthController@logout') }}">退出</a>
                     </li>
