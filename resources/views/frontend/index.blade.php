@@ -39,12 +39,18 @@
                                 class="form-control-static text-danger">{{ $errors->first('email') }}</p>@endif
                     </div>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12 {{ session('lucky_draw') ? 'hide' : '' }}">
                     <p class="text-center">同時填寫電話號碼更會自動參加”除夕倒數抽獎” <br>
                         Fill in your phone number as well to entre the “Countdown Fever Lucky Draw”
                     </p>
                 </div>
-                    <div class="col-sm-12">
+
+                <div class="col-sm-12 {{ session('lucky_draw') ? '' : 'hide' }}">
+                    <p class="text-center">”除夕倒數抽獎”已截止參加。<br>
+                        Entry to the “Countdown Fever Lucky Draw” has closed.
+                    </p>
+                </div>
+                    <div class="col-sm-12 {{ session('lucky_draw') ? 'hide' : '' }}">
                         <div class="form-group">
                             <label for="name" class="control-label" style="text-align: left">手提電話 (區號+號碼)<br>
                                 Mobile Phone (Area code + number)

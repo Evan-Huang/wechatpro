@@ -19,50 +19,82 @@ class IndexController extends Controller
             //獲取request數據並驗證
             $inputs = $request->all();
 
+            if (session('lucky_draw')) {
+                $validator = \Validator::make($inputs, [
+                    //  'clientname' => 'required',
+                    'email' => 'required|email|unique:clients',
+                    'accept_terms1' => 'required|accepted',
+                    'accept_terms2' => 'required|accepted'
+                ], [
+                    'email.required' => '請填寫電郵 Email',
+                    'email.email' => '請檢查Email格式是否正確',
+                    'email.unique' => '該Email已參與活動',
+                    'accept_terms1.required' => '請點選空格同意使用上述資料訂閱信息',
+                    'accept_terms1.accepted' => '請點選空格同意使用上述資料訂閱信息',
+                    'accept_terms2.required' => '請點選空格同意條款及細則以繼續',
+                    'accept_terms2.accepted' => '請點選空格同意條款及細則以繼續',
+                ]);
 
-            $validator = \Validator::make($inputs, [
-              //  'clientname' => 'required',
-                'email' => 'required|email|unique:clients',
-                'phone' => 'numeric',
-                'accept_terms1' => 'required|accepted',
-                'accept_terms2' => 'required|accepted'
-            ], [
-                'email.required_without_all' => '請填寫電郵或手提電話',
-                'phone.required_without_all' => '請填寫電郵或手提電話',
-               // 'clientname.required' => '請填寫姓名 Name',
-                'email.required' => '請填寫電郵 Email',
-                'email.email' => '請檢查Email格式是否正確',
-                'email.unique' => '該Email已參與活動',
-                'phone.required' => '請填寫手提電話 (區號+號碼)',
-                'phone.numeric' => '必須為6字開頭的8位數字',
-                'phone.min' => '必須為6字開頭的8位數字',
-                'phone.max' => '必須為6字開頭的8位數字',
-                'accept_terms1.required' => '請點選空格同意使用上述資料訂閱信息',
-                'accept_terms1.accepted' => '請點選空格同意使用上述資料訂閱信息',
-                'accept_terms2.required' => '請點選空格同意條款及細則以繼續',
-                'accept_terms2.accepted' => '請點選空格同意條款及細則以繼續',
-            ]);
+                if( $validator->fails() ) {
+                    return \Redirect::back()->withInput($inputs)->withErrors($validator);
+                }
 
-            if( $validator->fails() ) {
-                return \Redirect::back()->withInput($inputs)->withErrors($validator);
-            }
+                //持久化數據到數據庫
+                $client = Client::create([
+                    'email' => $inputs['email'],
+                    'phone' => '0'
+                ]);
 
+                if ($client) {
+                    //數據保存成功則發送通知郵件
+                    $this->mail($client);
+                    return redirect('/result')->with('success','成功參與本次活動');
+                }else{
+                    return redirect()->back()->with('error','信息添加失敗，請重試');
+                }
 
-            //持久化數據到數據庫
-            $client = Client::create([
-                'clientname' => $inputs['clientname'],
-                'email' => $inputs['email'],
-                'phone' => $inputs['phone']
-            ]);
+            }else {
+                $validator = \Validator::make($inputs, [
+                    //  'clientname' => 'required',
+                    'email' => 'required|email|unique:clients',
+                    'phone' => 'numeric',
+                    'accept_terms1' => 'required|accepted',
+                    'accept_terms2' => 'required|accepted'
+                ], [
+                    'email.required_without_all' => '請填寫電郵或手提電話',
+                    'phone.required_without_all' => '請填寫電郵或手提電話',
+                    // 'clientname.required' => '請填寫姓名 Name',
+                    'email.required' => '請填寫電郵 Email',
+                    'email.email' => '請檢查Email格式是否正確',
+                    'email.unique' => '該Email已參與活動',
+                    'phone.required' => '請填寫手提電話 (區號+號碼)',
+                    'phone.numeric' => '必須為6字開頭的8位數字',
+                    'phone.min' => '必須為6字開頭的8位數字',
+                    'phone.max' => '必須為6字開頭的8位數字',
+                    'accept_terms1.required' => '請點選空格同意使用上述資料訂閱信息',
+                    'accept_terms1.accepted' => '請點選空格同意使用上述資料訂閱信息',
+                    'accept_terms2.required' => '請點選空格同意條款及細則以繼續',
+                    'accept_terms2.accepted' => '請點選空格同意條款及細則以繼續',
+                ]);
 
+                if( $validator->fails() ) {
+                    return \Redirect::back()->withInput($inputs)->withErrors($validator);
+                }
 
+                //持久化數據到數據庫
+                $client = Client::create([
+                    'clientname' => $inputs['clientname'],
+                    'email' => $inputs['email'],
+                    'phone' => $inputs['phone']
+                ]);
 
-            if ($client) {
-                //數據保存成功則發送通知郵件
-                $this->mail($client);
-                return redirect('/result')->with('success','成功參與本次活動');
-            }else{
-                return redirect()->back()->with('error','信息添加失敗，請重試');
+                if ($client) {
+                    //數據保存成功則發送通知郵件
+                    $this->mail($client);
+                    return redirect('/result')->with('success','成功參與本次活動');
+                }else{
+                    return redirect()->back()->with('error','信息添加失敗，請重試');
+                }
             }
 
         }
@@ -78,6 +110,11 @@ class IndexController extends Controller
     //即時結果頁面
     public function result() {
         return view('frontend.result');
+    }
+
+    //活動結束頁面
+    public function indexover() {
+        return view('frontend.index_over');
     }
 
     //郵件發送

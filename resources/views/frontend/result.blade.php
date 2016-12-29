@@ -23,12 +23,20 @@
 
 
         <div class="col-sm-12" >
-            <div class="text-center">
+            <div class="text-center {{ session('lucky_draw') ? 'hide' : '' }}">
                 <p>
                     多謝參與，精美禮品電子換領券已發送至已登記的電子郵箱，<br>“除夕倒數抽獎”結果將於12月31日公佈。請關注我們獲取最新消息！
                     <br>
                     Thank you. Please check your registered email box for the souvenir e-ticket. <br> The “Countdown Fever Lucky Draw” results will be announced on 31st December.
                     <br> Please follow us for the latest information!
+
+                </p>
+            </div>
+
+            <div class="text-center {{ session('lucky_draw') ? '' : 'hide' }}">
+                <p>
+                    <br><br>多謝參與，精美禮品電子換領券已發送至已登記的電子郵箱！<br><br>
+                    Thank you. Please check your registered email box for the souvenir e-ticket. <br><br>
 
                 </p>
             </div>

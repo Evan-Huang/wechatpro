@@ -19,11 +19,13 @@ Route::get('/backend/login', ['uses' => 'Backend\AuthController@login']);
 Route::post('/backend/login', ['uses' => 'Backend\AuthController@postLogin']);
 Route::get('/backend/logout', ['uses' => 'Backend\AuthController@logout']);
 
+Route::get('/indexover','Frontend\IndexController@indexover');
+Route::get('/terms','Frontend\IndexController@terms');
 
 Route::group(['middleware' => ['activity.over']], function () {
 
     Route::any('/','Frontend\IndexController@index');
-    Route::get('/terms','Frontend\IndexController@terms');
+
     Route::get('/result','Frontend\IndexController@result');
 });
 

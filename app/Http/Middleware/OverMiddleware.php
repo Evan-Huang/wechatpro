@@ -15,14 +15,22 @@ class OverMiddleware
      */
     public function handle($request, Closure $next)
     {
-//        $end_date = strtotime('2016-12-30 21:00:00');
-        $end_date = strtotime('2016-12-30 21:0:00');
-        if ( time() > $end_date) {
-            //到达时间点截止活动
+
+        $end_date_one = strtotime('2016-12-30 15:01:00');
+        $end_date_two = strtotime('2016-12-31 21:01:00');
+
+        //到达时间点截止活动
+        if ( time() > $end_date_two) {
+            return redirect('indexover');
         }
 
+        //到达时间点停止除夕倒數抽獎
+        if ( time() > $end_date_one) {
+            $request->session()->put('lucky_draw',true);
+        }else {
+            $request->session()->put('lucky_draw', false);
+        }
 
-
-        return $next($request);
+        return  $next($request);
     }
 }
