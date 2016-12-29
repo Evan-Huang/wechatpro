@@ -89,6 +89,21 @@
                     </div>
                     <div class="col-sm-12">
 
+                        <div style="padding-bottom: 10px;">
+                            <div class="center">
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FMacauFishermansWharf&width=125&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=240602902634336" width="125" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                            </div>
+
+                            <div class="center">
+                                <img src="{{ asset('images/wechat.png') }}" class="img-responsive center-block pull-left" style="height: 16px;">
+                                <span><a href="http://www.fishermanswharf.com.mo/tc/content/wechat.aspx">&nbsp;<u>WX_MFW</u></a></span><br>
+                                @if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+                                    <a href="http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI0MzE1NTkyOA==&scence=110#wechat_redirect"  class="btn btn-primary bt_submit">一鍵關注</a>
+                                @endif
+                            </div>
+
+                        </div>
+
                         <div class="form-group">
                             <div class="btn-group center">
                                 <button type="submit" class="btn btn-primary bt_submit">確定 ENTER</button>
